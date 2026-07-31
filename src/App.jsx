@@ -10,7 +10,7 @@ const [server,setServer]=useState(null);
 async function check(){
 
     const res = await fetch(
-        "http://localhost:3001/status"
+        "https://sweet-hat-e72f.matteo07bronzi.workers.dev/status"
     );
 
     const data = await res.json();
