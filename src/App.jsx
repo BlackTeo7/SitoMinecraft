@@ -9,13 +9,23 @@ const [server,setServer]=useState(null);
 
 async function check(){
 
-    const res = await fetch(
-        "https://apiminecraftserver.onrender.com/status"
-    );
+    try {
 
-    const data = await res.json();
+        const res = await fetch(
+            "https://apiminecraftserver.onrender.com/status"
+        );
 
-    setServer(data);
+        const data = await res.json();
+
+        setServer(data);
+
+    } catch(error){
+
+        setServer({
+            online:false
+        });
+
+    }
 
 }
 
@@ -30,7 +40,6 @@ useEffect(()=>{
         10000
     );
 
-
     return()=>clearInterval(timer);
 
 
@@ -42,68 +51,76 @@ return (
 
 <div className="page">
 
-<div className="card">
+    <div className="card">
+
+        <h1>
+            ⛏️ Minecraft Server
+        </h1>
 
 
-<h1>
-⛏️ Minecraft Server
-</h1>
+        {!server ? (
+
+            <h2 className="loading">
+                🔄 Controllo server...
+            </h2>
+
+        ) : server.online ? (
+
+            <>
+
+                <div className="status online">
+                    🟢 ONLINE
+                </div>
 
 
-{
-!server ?
+                <div className="info">
 
-<h2>
-🔄 Controllo...
-</h2>
+                    <div>
+                        👥
+                        <span>
+                            Giocatori
+                        </span>
 
-
-:
-
-server.online ?
-
-
-<>
-
-<h2 className="online">
-🟢 ONLINE
-</h2>
+                        <strong>
+                            {server.players.online}/{server.players.max}
+                        </strong>
+                    </div>
 
 
-<h3>
-👥 {server.players.online}/{server.players.max}
-</h3>
+                    <div>
+                        🧱
+                        <span>
+                            Versione
+                        </span>
+
+                        <strong>
+                            {server.version}
+                        </strong>
+                    </div>
+
+                </div>
 
 
-<p>
-Versione:
-{server.version}
-</p>
+                <div className="motd">
+                    {server.motd}
+                </div>
+
+            </>
+
+        ) : (
+
+            <div className="status offline">
+                🔴 OFFLINE
+            </div>
+
+        )}
 
 
-<p>
-{server.motd}
-</p>
-
-</>
-
-
-:
-
-<h2 className="offline">
-🔴 OFFLINE
-</h2>
-
-}
-
+    </div>
 
 </div>
-
-</div>
-
 
 )
-
 
 }
 

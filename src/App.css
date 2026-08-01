@@ -1,32 +1,100 @@
-body{
-
-margin:0;
-background:#101010;
-color:white;
-font-family:Arial;
-
+*{
+    box-sizing:border-box;
 }
 
+
+body{
+
+    margin:0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+}
 
 
 .page{
 
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.7)
+    ),
+
+    url("https://wallpapercave.com/wp/wp4676583.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+
+.card{
+
+    width:420px;
+
+    padding:35px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #3b3b3b,
+        #222
+    );
+
+
+    border:5px solid #111;
+
+    border-radius:12px;
+
+
+    box-shadow:
+
+    0 0 0 4px #555,
+    0 20px 40px black;
+
+
+    text-align:center;
+
+    color:white;
 
 }
 
 
 
-.card{
+h1{
 
-background:#222;
-padding:40px;
-border-radius:20px;
-text-align:center;
-width:350px;
+    margin-top:0;
+
+    font-size:32px;
+
+    text-shadow:
+
+    3px 3px #000;
+
+}
+
+
+
+.status{
+
+    margin:25px auto;
+
+    padding:15px;
+
+    width:80%;
+
+    border-radius:8px;
+
+    font-size:25px;
+
+    font-weight:bold;
 
 }
 
@@ -34,7 +102,13 @@ width:350px;
 
 .online{
 
-color:#00ff66;
+    background:#2ecc40;
+
+    color:white;
+
+    box-shadow:
+
+    0 0 20px #2ecc40;
 
 }
 
@@ -42,6 +116,96 @@ color:#00ff66;
 
 .offline{
 
-color:red;
+    background:#c0392b;
+
+    box-shadow:
+
+    0 0 20px #c0392b;
+
+}
+
+
+
+.info{
+
+    display:flex;
+
+    gap:15px;
+
+    justify-content:center;
+
+}
+
+
+
+.info div{
+
+    background:#111;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    width:50%;
+
+}
+
+
+
+.info span{
+
+    display:block;
+
+    font-size:14px;
+
+    color:#aaa;
+
+}
+
+
+
+.info strong{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:22px;
+
+}
+
+
+
+.motd{
+
+    margin-top:25px;
+
+    padding:15px;
+
+    background:#111;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+}
+
+
+
+.loading{
+
+    animation:pulse 1.5s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+    50%{
+
+        opacity:.5;
+
+    }
 
 }
