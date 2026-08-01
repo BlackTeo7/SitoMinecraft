@@ -10,7 +10,7 @@ const [server,setServer]=useState(null);
 async function check(){
 
     const res = await fetch(
-        "https://sweet-hat-e72f.matteo07bronzi.workers.dev/status"
+        "https://apiminecraftserver.onrender.com/status"
     );
 
     const data = await res.json();
