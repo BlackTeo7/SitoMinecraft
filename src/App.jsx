@@ -54,7 +54,7 @@ return (
     <div className="card">
 
         <h1>
-            ⛏️ Minecraft Server
+            Server Minecraft
         </h1>
 
 
